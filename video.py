@@ -1,6 +1,9 @@
+import cv2
+
+
 def playVideo(fileName):
-# Create a VideoCapture object and read from input file
-# If the input is the camera, pass 0 instead of the video file name
+    # Create a VideoCapture object and read from input file
+    # If the input is the camera, pass 0 instead of the video file name
     cap = cv2.VideoCapture(fileName)
     # Check if camera opened successfully
     if (cap.isOpened() is False):
@@ -14,15 +17,13 @@ def playVideo(fileName):
         # Capture frame-by-frame
         ret, frame = cap.read()
         if ret:
-            # import ipdb; ipdb.set_trace()
-            #frame = numpy.rot90(frame, k=1, axes=(1, 0))
+
             # Display the resulting frame
             cv2.imshow('Frame', frame)
 
             # Press Q on keyboard to exit
             if cv2.waitKey(25) & 0xFF == ord('q'):
                 break
-            # cv2.waitKey(0)
         # Break the loop
         else:
             break
